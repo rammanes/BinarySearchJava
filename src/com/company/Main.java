@@ -1,4 +1,7 @@
 package com.company;
+
+import com.company.user_link_list.LinkedList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,5 +14,12 @@ public class Main {
             System.out.println("items is found at index  "+ result);
         else
             System.out.println("Element not found");
+
+        //Linked List Implementation
+        var listItems = new LinkedList();
+        listItems.addFirst(10);
+        listItems.addLast(20);
+        listItems.addLast(20);
+        listItems.display();
     }
 }
