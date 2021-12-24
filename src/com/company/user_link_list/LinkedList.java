@@ -7,14 +7,14 @@ public class LinkedList {
     private Node last;
 
     private class Node {
-        private int value;
+        private Item value;
         private Node next;
         // this constructor add a value and set it to the value of the node
-        public Node(int value){
+        public Node(Item value){
             this.value = value;
         }
     }
-    public void addLast(int item){
+    public void addLast(Item item){
         var node = new Node(item);
         // if our linked list is empty set the first and last node to point to this value
         if(isEmpty())
@@ -27,7 +27,7 @@ public class LinkedList {
         }
 
     }
-    public void addFirst(int item){
+    public void addFirst(Item item){
         var node = new Node(item);
         // if our linked list is empty set the first and last node to point to this value
         if(isEmpty())
@@ -40,20 +40,20 @@ public class LinkedList {
         }
 
     }
-    public int indexOf(int item){
+    public int indexOf(String item_name){
        // introduce a counter to  serve as an index
         int count = 0;
         var current = first;
         while (current !=null){
-            if (current.value == item) return count;
+            if (current.value.getItem_name().equals(item_name)) return count;
             current = current.next;
             count++;
         }
         return -1;
     }
-    public boolean cotains(int item){
+    public boolean cotains(String item_name){
         //traverse the list
-        return indexOf(item)!= -1;
+        return indexOf(item_name)!= -1;
     }
     public void deleteFirst(){
         if (isEmpty())
@@ -68,8 +68,11 @@ public class LinkedList {
     }
     public void display(){
 
-        if (isEmpty())
+        if (isEmpty()) {
             System.out.println("The link list is empty");
+            throw new NullPointerException();
+
+        }
 
         var current = first;
         while(current.next != null) {
